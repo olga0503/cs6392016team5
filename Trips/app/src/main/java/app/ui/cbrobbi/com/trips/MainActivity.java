@@ -17,6 +17,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -629,6 +630,7 @@ public class MainActivity extends AppCompatActivity {
         FL3.setLayoutParams(FL3Params);
 
         EditText edittext_nights = new EditText(this);
+        edittext_nights.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL | InputType.TYPE_NUMBER_FLAG_SIGNED);
         edittext_nights.setId(count);
         LayoutParams edittext_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
         edittext_nights.setBackgroundResource(R.drawable.edittext_design);
@@ -645,7 +647,7 @@ public class MainActivity extends AppCompatActivity {
         Button remove_city_button = new Button (this);
         LayoutParams remove_city_button_params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
         remove_city_button.setBackgroundResource(R.drawable.button_design);
-        remove_city_button_params.setMargins(0,20,0,20);
+        remove_city_button_params.setMargins(10,20,0,20);
         remove_city_button.setText("Remove");
         remove_city_button.setTextColor(Color.parseColor("#FFFFFF"));
         remove_city_button.setLayoutParams(remove_city_button_params);
@@ -674,7 +676,7 @@ public class MainActivity extends AppCompatActivity {
         LH.addView(LV3);
 
         parent_layout.addView(LH);
-        Toast.makeText(MainActivity.this, Integer.toString(count), Toast.LENGTH_SHORT).show();
+       // Toast.makeText(MainActivity.this, Integer.toString(count), Toast.LENGTH_SHORT).show();
 
         //Toast.makeText(MainActivity.this, Integer.toString(count)+Integer.toString(LL.getId())+Integer.toString(edit_text.getId()), Toast.LENGTH_SHORT).show();
 
@@ -701,36 +703,27 @@ public class MainActivity extends AppCompatActivity {
         TextView adults_error_message = (TextView) findViewById(R.id.adults_error_message);
         TextView nights_error_message = (TextView) findViewById(R.id.nights_error_message);
 
-        if ((adults_num.getText().toString()).matches("") || Integer.parseInt(adults_num.getText().toString()) < 1){
-            adults_error_message.setText("Enter a number!");
+        if ((adults_num.getText().toString()).matches("")){
+            adults_error_message.setText("Enter a number!");}
 
-            if(Integer.parseInt(nights_num.getText().toString()) < 1)
-            {
-                adults_error_message.setText("Enter a number!");
+            else if( (nights_num.getText().toString()).matches("") ){
+
+            nights_error_message.setText("Enter a number!");
             }
-            else
+            else if (Integer.parseInt(adults_num.getText().toString()) < 1)
             {
-                adults_error_message.setText("Enter a number!");
+                adults_error_message.setText("Add atleast 1 adult!");
             }
-        }
-        else if((nights_num.getText().toString()).matches("") || Integer.parseInt(nights_num.getText().toString()) < 1)
-        {
-            if(Integer.parseInt(nights_num.getText().toString()) < 1)
+
+            else if(Integer.parseInt(nights_num.getText().toString()) < 1)
             {
                 nights_error_message.setText("Atleast 1 Night!");
             }
-            else
-            {
-                nights_error_message.setText("Enter a number!");
-            }
-
-        }
-        else
-        {
-            if((children_num.getText().toString().matches("")))
+            else if (children_num.getText().toString().matches(""))
             {
                 children_num.setText("0");
             }
+        else{
             for (int i = 0; i < count; i++) {
                 //LinearLayout child_layout = (LinearLayout) findViewById(i);
                 EditText child_text = (EditText) findViewById(i+1);
@@ -746,6 +739,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
             nights.add(0,nights_num.getText().toString());
+            //cities.add(0,spinner_arriving_city.getSelectedItem().toString());
 
 
             // Toast.makeText(MainActivity.this, Integer.toString(al.size()), Toast.LENGTH_SHORT).show();
@@ -757,7 +751,7 @@ public class MainActivity extends AppCompatActivity {
                 allItems = allItems + "\n" + str; //adds a new line between items
             }
 
-            Toast.makeText(getApplicationContext(),allItems, Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(),allItems, Toast.LENGTH_LONG).show();
 
             //Toast.makeText(getApplicationContext(),allItems, Toast.LENGTH_LONG).show();
 

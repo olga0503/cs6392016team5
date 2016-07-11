@@ -1,6 +1,9 @@
 package app.ui.cbrobbi.com.trips;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -44,6 +47,10 @@ public class ShopingCartActivity extends AppCompatActivity {
                 params.gravity = Gravity.RIGHT;
                 TableLayout tl = (TableLayout)findViewById(R.id.product_list);
                 TextView tot = (TextView)findViewById(R.id.totalGoesHear);
+                tot.setTextColor(Color.parseColor("#d38d06"));
+                tot.setTypeface(null, Typeface.BOLD);
+                tot.setTextSize(25);
+                tot.setGravity(Gravity.CENTER_VERTICAL);
                 TableRow tr = new TableRow(this);
                 tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
                 TextView tv = new TextView(this);
@@ -54,6 +61,12 @@ public class ShopingCartActivity extends AppCompatActivity {
                 tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.WRAP_CONTENT, 1f));
                 tv2.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.WRAP_CONTENT, 1f));
                 tv.setGravity(Gravity.LEFT);
+                tv.setTextColor(Color.parseColor("#000000"));
+                tv.setTypeface(null, Typeface.BOLD);
+                tv.setTextSize(15);
+                tv.setTypeface(null, Typeface.BOLD);
+                tv.setTextColor(Color.parseColor("#000000"));
+                tv.setTextSize(15);
                 tv2.setGravity(Gravity.RIGHT);
                 tr.addView(tv);
                 tr.addView(tv2);
@@ -69,6 +82,10 @@ public class ShopingCartActivity extends AppCompatActivity {
                 params.gravity = Gravity.RIGHT;
                 TableLayout tl = (TableLayout)findViewById(R.id.product_list);
                 TextView tot = (TextView)findViewById(R.id.totalGoesHear);
+                tot.setTextColor(Color.parseColor("#d38d06"));
+                tot.setGravity(Gravity.CENTER_VERTICAL);
+                tot.setTypeface(null, Typeface.BOLD);
+                tot.setTextSize(25);
                 TableRow tr = new TableRow(this);
                 tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
                 TextView tv = new TextView(this);
@@ -80,6 +97,12 @@ public class ShopingCartActivity extends AppCompatActivity {
                 tv2.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.WRAP_CONTENT, 1f));
                 tv.setGravity(Gravity.LEFT);
                 tv2.setGravity(Gravity.RIGHT);
+                tv2.setTextColor(Color.parseColor("#000000"));
+                tv2.setTypeface(null, Typeface.BOLD);
+                tv2.setTextSize(15);
+                tv.setTextColor(Color.parseColor("#000000"));
+                tv.setTypeface(null, Typeface.BOLD);
+                tv.setTextSize(15);
                 tr.addView(tv);
                 tr.addView(tv2);
                 tl.addView(tr, new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
@@ -94,30 +117,33 @@ public class ShopingCartActivity extends AppCompatActivity {
                 params.gravity = Gravity.RIGHT;
                 TableLayout tl = (TableLayout)findViewById(R.id.product_list);
                 TextView tot = (TextView)findViewById(R.id.totalGoesHear);
+                tot.setTextColor(Color.parseColor("#d38d06"));
+                tot.setGravity(Gravity.CENTER_VERTICAL);
+                tot.setTypeface(null, Typeface.BOLD);
+                tot.setTextSize(25);
                 TableRow tr = new TableRow(this);
                 tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
                 TextView tv = new TextView(this);
                 TextView tv2 = new TextView(this);
                 tv.setText(extras.getString("vacation")+ extras.getString("date"));
+                tv.setTextColor(Color.parseColor("#000000"));
+                tv.setTypeface(null, Typeface.BOLD);
+                tv.setTextSize(15);
                 tv2.setText(extras.getString("cost"));
                 tot.setText(extras.getString("cost"));
                 tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.WRAP_CONTENT, 1f));
                 tv2.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.WRAP_CONTENT, 1f));
                 tv.setGravity(Gravity.LEFT);
                 tv2.setGravity(Gravity.RIGHT);
+                tv2.setTextColor(Color.parseColor("#000000"));
+                tv2.setTypeface(null, Typeface.BOLD);
+                tv2.setTextSize(15);
                 tr.addView(tv);
                 tr.addView(tv2);
                 tl.addView(tr, new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
             }
         }
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

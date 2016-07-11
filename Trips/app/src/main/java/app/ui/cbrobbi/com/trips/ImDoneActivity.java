@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.support.design.widget.AppBarLayout.LayoutParams;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -60,14 +61,14 @@ public class ImDoneActivity extends AppCompatActivity {
         people_num.setText("for " + adults_num_entry + " Adult(s), " + children_num_entry + " Child(ren)");
 
         TextView deparure_city = (TextView) findViewById(R.id.departure_city);
-        deparure_city.setText(departure_city_entry);
-        TextView arrival_city2 = (TextView) findViewById(R.id.arrival_city2);
-        arrival_city2.setText(departure_city_entry);
+        deparure_city.setText(departure_city_entry  + " , US");
+        TextView arrival_city2 = (TextView) findViewById(R.id.arrival_city2 );
+        arrival_city2.setText(departure_city_entry+ " , Peru");
 
-        TextView deparure_city2 = (TextView) findViewById(R.id.departure_city2);
-        deparure_city2.setText(arriving_city_entry);
+        TextView deparure_city2 = (TextView) findViewById(R.id.departure_city2 );
+        deparure_city2.setText(arriving_city_entry+ " , Peru");
         TextView arrival_city = (TextView) findViewById(R.id.arrival_city);
-        arrival_city.setText(arriving_city_entry);
+        arrival_city.setText(arriving_city_entry + " , US");
 
 
         String allItems = "";
@@ -80,8 +81,10 @@ public class ImDoneActivity extends AppCompatActivity {
 
         ArrayList<String> myList_cities = (ArrayList<String>) getIntent().getSerializableExtra("mylist_cities");
 
+        myList_cities.add(0,arriving_city_entry);
 
-        Toast.makeText(getApplicationContext(), allItems, Toast.LENGTH_LONG).show();
+
+        //Toast.makeText(getApplicationContext(), allItems, Toast.LENGTH_LONG).show();
 
 
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
@@ -99,30 +102,35 @@ public class ImDoneActivity extends AppCompatActivity {
             try {
 
                 Date date = formatter.parse(start_date);
-                Toast.makeText(getApplicationContext(), date.toString(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), date.toString(), Toast.LENGTH_SHORT).show();
                 Calendar c = Calendar.getInstance();
                 c.setTime(date);
                 c.add(Calendar.DATE, sumOfArray(dd, i));
                 Date dt = c.getTime();
                 dates.add(dt);
 
-                Toast.makeText(getApplicationContext(), dt.toString(), Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getApplicationContext(), dt.toString(), Toast.LENGTH_SHORT).show();
 
             } catch (ParseException e) {
                 e.printStackTrace();
             }
         }
 
-        String all_dates = "";
-        for (Date date : dates) {
-            //all_dates = all_dates + "\n" + date; //adds a new line between items
-            //data2.setText(all_dates);
-            //Toast.makeText(getApplicationContext(), all_dates, Toast.LENGTH_SHORT).show();
+        try {
+
+            Date date2 = formatter.parse(start_date);
+            dates.add(0,date2);
+        }
+        catch (ParseException e) {
+            e.printStackTrace();
         }
 
 
+
+        LinearLayout parent_layout2 = (LinearLayout) findViewById(R.id.parent_layout2);
+
         for (int i = 0; i < myList_cities.size(); i++) {
-            LinearLayout parent_layout2 = (LinearLayout) findViewById(R.id.parent_layout2);
+
             TextView city_date = new TextView(this);
             city_date.setId(i);
             LayoutParams city_date_params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
@@ -134,6 +142,7 @@ public class ImDoneActivity extends AppCompatActivity {
             String date1 = dates.get(i).toString();
             String date2 = dates.get(i + 1).toString();
             city_date.setText((date1.substring(0, 10)) + " - " + (date2.substring(0, 10)) + " " + (date2.substring(24, 28)));
+            city_date.setTextColor(Color.parseColor("#d38d06"));
             parent_layout2.addView(city_date);
 
             LinearLayout LH1 = new LinearLayout(this);
@@ -159,6 +168,7 @@ public class ImDoneActivity extends AppCompatActivity {
             city.setTypeface(null, Typeface.BOLD);
             city_date.setTextSize(25);
             city.setTextSize(25);
+            city.setTextColor(Color.parseColor("#1A237E"));
             city.setLayoutParams(city_params);
             city.setId(i);
             parent_layout2.addView(city);
@@ -170,6 +180,7 @@ public class ImDoneActivity extends AppCompatActivity {
             hotel_desc.setTypeface(null, Typeface.BOLD);
             hotel_desc.setTextSize(25);
             hotel_desc.setText("Accomodation");
+            hotel_desc.setBackgroundColor(700);
             hotel_desc.setLayoutParams(hotel_desc_params);
 
 
@@ -223,6 +234,7 @@ public class ImDoneActivity extends AppCompatActivity {
             act_desc.setTextSize(25);
             act_desc.setLayoutParams(hotel_desc_params);
             act_desc.setText("Activities");
+            act_desc.setTextColor(Color.parseColor("#0065b8"));
             parent_layout2.addView(act_desc);
 
 
@@ -255,13 +267,16 @@ public class ImDoneActivity extends AppCompatActivity {
             }
         });
 
-           int totals = Integer.parseInt(adults_num_entry)*sumOfArray(dd,myList_nights.size()-1)*Integer.parseInt(children_num_entry);
+            double totals = Integer.parseInt(adults_num_entry)*sumOfArray(dd,myList_nights.size()-1)*Integer.parseInt(children_num_entry)*0.8*650;
+            DecimalFormat df = new DecimalFormat("#.##");
+
             TextView total = (TextView) findViewById(R.id.total);
-            total.setText("$ "+ totals);
+            total.setText("$ "+ df.format(totals));
+
             TextView total_per_person = (TextView) findViewById(R.id.total_per_person);
             int people=(Integer.parseInt(children_num_entry)+Integer.parseInt(adults_num_entry));
-            int pp=totals/people;
-            total_per_person.setText("$ "+ pp);
+            double pp=totals/people;
+            total_per_person.setText("$ "+ df.format(pp));
 
     }}
 

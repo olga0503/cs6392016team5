@@ -29,10 +29,18 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Make a Payment!"
+                    android:id="@+id/mainpage_title"
                     android:layout_weight="1"
-                    android:text="ITEMS:"
+                    android:gravity="center_horizontal"
+                    android:textSize="30dp"
+                    android:textColor="#039"
+                    android:shadowColor="#3524cc"
+                    android:textStyle="bold"
                     android:layout_gravity="center"
-                    />
+                    android:layout_marginBottom="10dp" />
+
                 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -44,7 +52,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:background="@android:color/black"
+                    android:background="#d38d06"
                     android:layout_marginBottom="15dp" />
 
                 <TextView
@@ -53,7 +61,9 @@
                     android:layout_weight="1"
                     android:text="Total:"
                     android:layout_gravity="left"
-                    />
+                    android:textColor="#0065b8"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -66,7 +76,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:background="@android:color/black"
+                    android:background="#d38d06"
                     android:layout_marginBottom="15dp" />
             </LinearLayout>
 
@@ -84,7 +94,11 @@
                         android:layout_weight="1"
                         android:layout_column="1"
                         android:text="@string/lstName"
-                        android:id="@+id/ccLstNmLbl" />
+                        android:id="@+id/ccLstNmLbl"
+                        android:textColor="#000000"
+                        android:textSize="20dp"
+                        android:textIsSelectable="false"
+                        android:textStyle="bold" />
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
@@ -93,17 +107,21 @@
                         android:layout_weight="1">
                         <EditText
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="40dp"
                             android:hint="Last Name"
                             android:id="@+id/ccLstNm"
-                            android:background="@drawable/edittext_design"/>
+                            android:background="@drawable/edittext_design"
+                            android:textSize="15dp"
+                            android:password="false"
+                            android:paddingRight="10dp" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/red"
                             android:layout_weight="1"
                             android:text=""
-                            android:id="@+id/lastNmErr" />
+                            android:id="@+id/lastNmErr"
+                            android:textSize="15dp" />
                 </LinearLayout>
                 </TableRow>
 
@@ -115,7 +133,11 @@
                         android:layout_weight="1"
                         android:layout_column="1"
                         android:text="@string/fstName"
-                        android:id="@+id/ccFstNmLbl" />
+                        android:id="@+id/ccFstNmLbl"
+                        android:textColor="#000000"
+                        android:textSize="20dp"
+                        android:textIsSelectable="false"
+                        android:textStyle="bold" />
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
@@ -124,29 +146,37 @@
                         android:layout_weight="1">
                         <EditText
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="40dp"
                             android:hint="First Name"
                             android:id="@+id/ccFstNm"
-                            android:background="@drawable/edittext_design"/>
+                            android:background="@drawable/edittext_design"
+                            android:textSize="15dp"
+                            android:paddingRight="10dp" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/red"
                             android:layout_weight="1"
                             android:text=""
-                            android:id="@+id/fstNmErr" />
+                            android:id="@+id/fstNmErr"
+                            android:textSize="15dp" />
                 </LinearLayout>
                 </TableRow>
 
                 <TableRow
-                    android:layout_margin="@dimen/activity_horizontal_margin2">
+                    android:layout_margin="@dimen/activity_horizontal_margin2"
+                    android:layout_height="40dp">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_column="1"
                         android:layout_weight="1"
                         android:text="@string/email"
-                        android:id="@+id/ccEmailLbl" />
+                        android:id="@+id/ccEmailLbl"
+                        android:textColor="#000000"
+                        android:textSize="20dp"
+                        android:textIsSelectable="false"
+                        android:textStyle="bold" />
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
@@ -155,19 +185,22 @@
                         android:layout_weight="1">
                         <EditText
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="40dp"
                             android:inputType="textEmailAddress"
                             android:hint="Enter Email"
                             android:id="@+id/ccEmail"
                             android:layout_weight="1"
-                            android:background="@drawable/edittext_design"/>
+                            android:background="@drawable/edittext_design"
+                            android:textSize="15dp"
+                            android:paddingRight="10dp" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:textColor="@color/red"
                             android:text=""
-                            android:id="@+id/emailErr" />
+                            android:id="@+id/emailErr"
+                            android:textSize="15dp" />
                     </LinearLayout>
                 </TableRow>
                 <TableRow
@@ -179,7 +212,10 @@
                         android:layout_weight="1"
                         android:text="@string/zip"
                         android:id="@+id/ccZipLbl"
-                        />
+                        android:textColor="#000000"
+                        android:textSize="20dp"
+                        android:textIsSelectable="false"
+                        android:textStyle="bold" />
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
@@ -189,18 +225,21 @@
 
                         <EditText
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="40dp"
                             android:inputType="number"
                             android:hint="Zip"
                             android:id="@+id/ccZip"
-                            android:background="@drawable/edittext_design"/>
+                            android:background="@drawable/edittext_design"
+                            android:textSize="15dp"
+                            android:paddingRight="10dp" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:textColor="@color/red"
                             android:text=""
-                            android:id="@+id/zipErr" />
+                            android:id="@+id/zipErr"
+                            android:textSize="15dp" />
                     </LinearLayout>
                 </TableRow>
                 <TableRow
@@ -211,7 +250,11 @@
                         android:layout_weight="1"
                         android:layout_column="1"
                         android:text="@string/ccTyp"
-                        android:id="@+id/ccTypeLbl" />
+                        android:id="@+id/ccTypeLbl"
+                        android:textColor="#000000"
+                        android:textSize="20dp"
+                        android:textIsSelectable="false"
+                        android:textStyle="bold" />
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -236,7 +279,11 @@
                         android:layout_weight="1"
                         android:layout_column="1"
                         android:text="@string/ccNbr"
-                        android:id="@+id/ccNbrLbl" />
+                        android:id="@+id/ccNbrLbl"
+                        android:textColor="#000000"
+                        android:textSize="20dp"
+                        android:textIsSelectable="false"
+                        android:textStyle="bold" />
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
@@ -245,19 +292,21 @@
                         android:layout_weight="1">
                         <EditText
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="40dp"
                             android:inputType="number"
                             android:hint="Enter 16 digit number"
                             android:id="@+id/ccNbr"
                             android:layout_weight="1"
-                            android:background="@drawable/edittext_design"/>
+                            android:background="@drawable/edittext_design"
+                            android:paddingRight="10dp" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:textColor="@color/red"
                             android:text=""
-                            android:id="@+id/ccNbrErr" />
+                            android:id="@+id/ccNbrErr"
+                            android:textSize="15dp" />
                     </LinearLayout>
 
             </TableRow>
@@ -271,7 +320,11 @@
                         android:text="Submit Payment"
                         android:id="@+id/button"
                         android:layout_column="2"
-                        android:onClick="validateCC"/>
+                        android:onClick="validateCC"
+                        android:background="@drawable/button_design"
+                        android:textColor="#ffffff"
+                        android:paddingRight="10dp"
+                        android:paddingLeft="10dp" />
                 </TableRow>
 
             </TableLayout>

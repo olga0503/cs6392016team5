@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="app.ui.cbrobbi.com.trips.ChooseActivity">
+    tools:context="app.ui.cbrobbi.com.trips.ChooseActivity"
+    android:background="@drawable/main_page_background_design">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -32,10 +33,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="Choose Your Activity"
-                        android:id="@+id/textView40"
-                        android:layout_gravity="center_horizontal" />
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Choose Your Activity!"
+                        android:id="@+id/mainpage_title"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:textSize="30dp"
+                        android:textColor="#039"
+                        android:shadowColor="#3524cc"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -48,7 +54,8 @@
                         android:layout_width="187dp"
                         android:layout_height="124dp"
                         android:id="@+id/limaImage"
-                        android:src="@drawable/temple_of_pachacamac" />
+                        android:src="@drawable/temple_of_pachacamac"
+                        android:layout_marginRight="10dp" />
 
                     <LinearLayout
                         android:orientation="vertical"
@@ -60,14 +67,18 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="@string/lima_activity_title"
-                            android:id="@+id/lima1" />
+                            android:id="@+id/lima1"
+                            android:textStyle="bold"
+                            android:textSize="20dp"
+                            android:textColor="#0065b8" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="@string/about_lima_activity"
-                            android:id="@+id/lima2" />
+                            android:id="@+id/lima2"
+                            android:textColor="#000000" />
                     </LinearLayout>
                 </LinearLayout>
 

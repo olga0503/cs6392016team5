@@ -16,6 +16,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -52,11 +54,15 @@ public class MainActivity extends AppCompatActivity {
     private DatePicker datePicker;
     private Calendar calendar;
     private TextView dateView;
+    private TextView dateViewBook1;
+    private TextView dateViewBook2;
+    private TextView dateViewBook3;
     private int year, month, day;
     TextView travelBuddy;
     EditText nightsNumber,nights1,nights2, adult, children, room;
     Spinner spinner_departure_cities;
     int count=0;
+    int count2;
     int i;
     ArrayList <String> cities = new ArrayList();
     ArrayList <String> nights = new ArrayList();
@@ -70,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        count2 = 0;
 
         // switching between with air fragment and without air fragment
 //        RadioGroup with_without_air_radioGroup = (RadioGroup) findViewById(R.id.with_without_air);
@@ -112,7 +119,11 @@ public class MainActivity extends AppCompatActivity {
             //}
         //});
 
+
         dateView = (TextView) findViewById(R.id.date_selected);
+        dateViewBook1 = (TextView) findViewById(R.id.bookItDate1);
+        dateViewBook2 = (TextView) findViewById(R.id.bookItDate2);
+        dateViewBook3 = (TextView) findViewById(R.id.bookItDate3);
         calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
 
@@ -220,6 +231,21 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Pick a date!", Toast.LENGTH_SHORT)
                 .show();
     }
+    public void setDate1(View view) {
+        showDialog(998);
+        Toast.makeText(getApplicationContext(), "Pick a date to leave for your trip!", Toast.LENGTH_SHORT)
+                .show();
+    }
+    public void setDate2(View view) {
+        showDialog(997);
+        Toast.makeText(getApplicationContext(), "Pick a date to leave for your trip!", Toast.LENGTH_SHORT)
+                .show();
+    }
+    public void setDate3(View view) {
+        showDialog(996);
+        Toast.makeText(getApplicationContext(), "Pick a date to leave for your trip!", Toast.LENGTH_SHORT)
+                .show();
+    }
 
 
 
@@ -243,6 +269,10 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
+        else if (id == R.id.action_cart) {
+            Intent intent = new Intent(this, ShopingCartActivity.class);
+            startActivity(intent);
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -257,6 +287,18 @@ public class MainActivity extends AppCompatActivity {
         if (id == 999) {
             return new DatePickerDialog(this, myDateListener, year, month, day);
         }
+        else if (id == 998)
+        {
+            return new DatePickerDialog(this, myDateListener1, year, month, day);
+        }
+        else if (id == 997)
+        {
+            return new DatePickerDialog(this, myDateListener2, year, month, day);
+        }
+        else if (id == 996)
+        {
+            return new DatePickerDialog(this, myDateListener3, year, month, day);
+        }
         return null;
     }
 
@@ -270,6 +312,36 @@ public class MainActivity extends AppCompatActivity {
             showDate(arg1, arg2+1, arg3);
         }
     };
+    private DatePickerDialog.OnDateSetListener myDateListener1 = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker arg0, int arg1, int arg2, int arg3) {
+            // TODO Auto-generated method stub
+            // arg1 = year
+            // arg2 = month
+            // arg3 = day
+            showDate1(arg1, arg2+1, arg3);
+        }
+    };
+    private DatePickerDialog.OnDateSetListener myDateListener2 = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker arg0, int arg1, int arg2, int arg3) {
+            // TODO Auto-generated method stub
+            // arg1 = year
+            // arg2 = month
+            // arg3 = day
+            showDate2(arg1, arg2+1, arg3);
+        }
+    };
+    private DatePickerDialog.OnDateSetListener myDateListener3 = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker arg0, int arg1, int arg2, int arg3) {
+            // TODO Auto-generated method stub
+            // arg1 = year
+            // arg2 = month
+            // arg3 = day
+            showDate3(arg1, arg2+1, arg3);
+        }
+    };
 
 
     private void showDate(int year, int month, int day) {
@@ -277,8 +349,202 @@ public class MainActivity extends AppCompatActivity {
                 .append(month).append("/").append(year));
     }
 
+    private void showDate1(int year, int month, int day) {
+        final TextView tv1 = (TextView)findViewById(R.id.bookItDate1);
+        topDeals(tv1);
+        dateViewBook1.setText(new StringBuilder()
+                .append(month)
+                .append(day)
+                .append("/")
+                .append("/")
+                .append(year));
+    }
+    private void showDate2(int year, int month, int day) {
+        final TextView tv2 = (TextView)findViewById(R.id.bookItDate2);
+        topDeals2(tv2);
+        dateViewBook2.setText(new StringBuilder().append(month)
+                .append(day)
+                .append("/")
+                .append("/")
+                .append(year));
+    }
+    private void showDate3(int year, int month, int day) {
+        final TextView tv3 = (TextView)findViewById(R.id.bookItDate3);
+        topDeals3(tv3);
+        dateViewBook3.setText(new StringBuilder().append(month)
+                .append(day)
+                .append("/")
+                .append("/")
+                .append(year));
+    }
+    public void topDeals(View view)
+    {
+        final TextView tv1 = (TextView)findViewById(R.id.bookItDate1);
+        final TextView tv2 = (TextView)findViewById(R.id.bookItDate2);
+        final TextView tv3 = (TextView)findViewById(R.id.bookItDate3);
 
 
+
+        tv1.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+                if(s.length() != 0)
+                {
+
+                    Intent intent = new Intent(MainActivity.this, ShopingCartActivity.class);
+                    intent.putExtra("vacation","Going to London for 6 nights on: ");
+                    intent.putExtra("cost","$1300");
+                    TextView dateTv = (TextView)findViewById(R.id.bookItDate1);
+                    intent.putExtra("date",dateTv.getText().toString());
+                    tv1.setVisibility(View.GONE);
+                    startActivity(intent);
+                }
+            }
+        });
+        /*tv2.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+                if(s.length() != 0)
+                {
+
+                    Intent intent = new Intent(MainActivity.this, ShopingCartActivity.class);
+                    intent.putExtra("vacation","Going to the Middle East for 12 nights on: ");
+                    intent.putExtra("cost","$1700");
+                    TextView dateTv = (TextView)findViewById(R.id.bookItDate2);
+                    intent.putExtra("date",dateTv.getText().toString());
+                    startActivity(intent);
+                }
+            }
+        });
+        tv3.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+                if(s.length() != 0)
+                {
+
+                    Intent intent = new Intent(MainActivity.this, ShopingCartActivity.class);
+                    intent.putExtra("vacation","Going To Asia for 10 nights on: ");
+                    intent.putExtra("cost","$2900");
+                    TextView dateTv = (TextView)findViewById(R.id.bookItDate3);
+                    intent.putExtra("date",dateTv.getText().toString());
+                    startActivity(intent);
+                }
+            }
+        });*/
+
+    }
+    public void topDeals2(View view)
+    {
+        final TextView tv2 = (TextView)findViewById(R.id.bookItDate2);
+
+
+        tv2.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+                if(s.length() != 0)
+                {
+
+                    Intent intent = new Intent(MainActivity.this, ShopingCartActivity.class);
+                    intent.putExtra("vacation","Going to the Middle East for 12 nights on: ");
+                    intent.putExtra("cost","$1700");
+                    TextView dateTv = (TextView)findViewById(R.id.bookItDate2);
+                    intent.putExtra("date",dateTv.getText().toString());
+                    tv2.setVisibility(View.GONE);
+                    startActivity(intent);
+                }
+            }
+        });
+
+
+    }
+    public void topDeals3(View view)
+    {
+
+        final TextView tv3 = (TextView)findViewById(R.id.bookItDate3);
+
+        tv3.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+                if(s.length() != 0)
+                {
+
+                    Intent intent = new Intent(MainActivity.this, ShopingCartActivity.class);
+                    intent.putExtra("vacation","Going To Asia for 10 nights on: ");
+                    intent.putExtra("cost","$2900");
+                    TextView dateTv = (TextView)findViewById(R.id.bookItDate3);
+                    intent.putExtra("date",dateTv.getText().toString());
+                    tv3.setVisibility(View.GONE);
+                    startActivity(intent);
+                }
+            }
+        });
+
+    }
     ///radio button method
     public void radioMethod(View v){
         boolean button =((RadioButton) v).isChecked();
@@ -320,13 +586,16 @@ public class MainActivity extends AppCompatActivity {
     //add city functionality
     public void add_city(View view) {
         count++;
+        count2++;
         //adding horizontal layout
         LinearLayout LH = new LinearLayout(this);
         LH.setOrientation(LinearLayout.HORIZONTAL);
-        LayoutParams LHParams = new LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT);
+        LayoutParams LHParams = new LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT);
         LH.setMinimumHeight(25);
         LHParams.setMargins(0,0,0,30);
         LH.setLayoutParams(LHParams);
+
+        LH.setId(count2 + 10);
 
         //adding vertical layouts
         LinearLayout LV1 = new LinearLayout(this);
@@ -351,7 +620,7 @@ public class MainActivity extends AppCompatActivity {
 
         LinearLayout LV3 = new LinearLayout(this);
         LV3.setOrientation(LinearLayout.VERTICAL);
-        LayoutParams LV3Params = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+        LayoutParams LV3Params = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.MATCH_PARENT);
         LV3Params.weight =3f;
         LV3.setLayoutParams(LV3Params);
 
@@ -361,7 +630,7 @@ public class MainActivity extends AppCompatActivity {
 
         EditText edittext_nights = new EditText(this);
         edittext_nights.setId(count);
-        LayoutParams edittext_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
+        LayoutParams edittext_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
         edittext_nights.setBackgroundResource(R.drawable.edittext_design);
         edittext_nights.setLayoutParams(edittext_params);
 
@@ -374,12 +643,19 @@ public class MainActivity extends AppCompatActivity {
         spinner_add_city.setBackgroundResource(R.drawable.spinner_design);
         spinner_add_city.setLayoutParams(spiiner_params);
         Button remove_city_button = new Button (this);
-        LayoutParams remove_city_button_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
+        LayoutParams remove_city_button_params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
         remove_city_button.setBackgroundResource(R.drawable.button_design);
         remove_city_button_params.setMargins(0,20,0,20);
         remove_city_button.setText("Remove");
         remove_city_button.setTextColor(Color.parseColor("#FFFFFF"));
         remove_city_button.setLayoutParams(remove_city_button_params);
+        remove_city_button.setId(count2+10);
+        remove_city_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removeAddCityLL(v, count2 + 10);
+            }
+        });
 
 
 
@@ -403,7 +679,12 @@ public class MainActivity extends AppCompatActivity {
         //Toast.makeText(MainActivity.this, Integer.toString(count)+Integer.toString(LL.getId())+Integer.toString(edit_text.getId()), Toast.LENGTH_SHORT).show();
 
     }
+    public void removeAddCityLL(View view, int id)
+    {
+        LinearLayout ll = (LinearLayout)findViewById(view.getId());
+        ll.setVisibility(View.GONE);
 
+    }
 
 
     //passing user's itinirary to a new activity
@@ -420,13 +701,36 @@ public class MainActivity extends AppCompatActivity {
         TextView adults_error_message = (TextView) findViewById(R.id.adults_error_message);
         TextView nights_error_message = (TextView) findViewById(R.id.nights_error_message);
 
-        if ((adults_num.getText().toString()).matches("")||(nights_num.getText().toString()).matches("")) {
+        if ((adults_num.getText().toString()).matches("") || Integer.parseInt(adults_num.getText().toString()) < 1){
             adults_error_message.setText("Enter a number!");
-            nights_error_message.setText("Enter a number!");
+
+            if(Integer.parseInt(nights_num.getText().toString()) < 1)
+            {
+                adults_error_message.setText("Enter a number!");
+            }
+            else
+            {
+                adults_error_message.setText("Enter a number!");
+            }
+        }
+        else if((nights_num.getText().toString()).matches("") || Integer.parseInt(nights_num.getText().toString()) < 1)
+        {
+            if(Integer.parseInt(nights_num.getText().toString()) < 1)
+            {
+                nights_error_message.setText("Atleast 1 Night!");
+            }
+            else
+            {
+                nights_error_message.setText("Enter a number!");
+            }
 
         }
-        else {
-
+        else
+        {
+            if((children_num.getText().toString().matches("")))
+            {
+                children_num.setText("0");
+            }
             for (int i = 0; i < count; i++) {
                 //LinearLayout child_layout = (LinearLayout) findViewById(i);
                 EditText child_text = (EditText) findViewById(i+1);

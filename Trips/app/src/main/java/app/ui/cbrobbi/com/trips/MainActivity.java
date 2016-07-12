@@ -594,7 +594,8 @@ public class MainActivity extends AppCompatActivity {
          LH.setOrientation(LinearLayout.HORIZONTAL);
          LayoutParams LHParams = new LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT);
 
-         LHParams.setMargins(0,0,0,30);
+         LHParams.setMargins(0,0,0,20);
+         LHParams.height=150;
          LH.setLayoutParams(LHParams);
 
          LH.setId(count2 + 10);
@@ -605,12 +606,13 @@ public class MainActivity extends AppCompatActivity {
         LayoutParams LV1Params = new LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT);
         LV1Params.weight = 3f;
         LV1.setLayoutParams(LV1Params);
+        LV1Params.height=150;
 
         FrameLayout FL1 = new FrameLayout(this);
         LayoutParams FL1Params = new LayoutParams(LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         FL1.setLayoutParams(FL1Params);
         FL1.getLayoutParams();
-        FL1Params.height=120;
+        FL1Params.height=150;
 
         LinearLayout LV2 = new LinearLayout(this);
         LV2.setOrientation(LinearLayout.VERTICAL);
@@ -619,7 +621,9 @@ public class MainActivity extends AppCompatActivity {
         LV2.setLayoutParams(LV2Params);
 
         FrameLayout FL2 = new FrameLayout(this);
-        LayoutParams FL2Params = new LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.WRAP_CONTENT);
+        LayoutParams FL2Params = new LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.MATCH_PARENT);
+        FL2Params.setMargins(100,0,50,0);
+        FL2Params.height=150;
         FL2.setLayoutParams(FL2Params);
 
         LinearLayout LV3 = new LinearLayout(this);
@@ -629,7 +633,9 @@ public class MainActivity extends AppCompatActivity {
         LV3.setLayoutParams(LV3Params);
 
         FrameLayout FL3 = new FrameLayout(this);
-        LayoutParams FL3Params = new LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.WRAP_CONTENT);
+        LayoutParams FL3Params = new LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.MATCH_PARENT);
+        FL3Params.height=150;
+        FL3Params.setMargins(50,0,0,0);
         FL3.setLayoutParams(FL3Params);
 
         EditText edittext_nights = new EditText(this);
@@ -639,6 +645,7 @@ public class MainActivity extends AppCompatActivity {
         edittext_nights.setBackgroundResource(R.drawable.edittext_design);
         edittext_nights.setLayoutParams(edittext_params);
 
+
         Spinner spinner_add_city = new Spinner(this);
         ArrayAdapter<CharSequence> spinner_adapter_add_city = ArrayAdapter.createFromResource(this, R.array.visiting_cities, R.layout.spinner_layout);
         spinner_adapter_add_city.setDropDownViewResource(R.layout.spinner_dropdown_layout);
@@ -646,12 +653,12 @@ public class MainActivity extends AppCompatActivity {
         spinner_add_city.setId(count*222);
         LayoutParams spiiner_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
         spinner_add_city.setBackgroundResource(R.drawable.spinner_design);
+        spiiner_params.height=150;
         spinner_add_city.setMinimumHeight(40);
         spinner_add_city.setLayoutParams(spiiner_params);
         Button remove_city_button = new Button (this);
         LayoutParams remove_city_button_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
         remove_city_button.setBackgroundResource(R.drawable.button_design);
-        remove_city_button_params.setMargins(10,20,0,20);
         remove_city_button.setText("Remove");
         remove_city_button.setTextColor(Color.parseColor("#FFFFFF"));
         remove_city_button.setLayoutParams(remove_city_button_params);
@@ -680,9 +687,6 @@ public class MainActivity extends AppCompatActivity {
         LH.addView(LV3);
 
         parent_layout.addView(LH);
-       // Toast.makeText(MainActivity.this, Integer.toString(count), Toast.LENGTH_SHORT).show();
-
-        //Toast.makeText(MainActivity.this, Integer.toString(count)+Integer.toString(LL.getId())+Integer.toString(edit_text.getId()), Toast.LENGTH_SHORT).show();
 
     }
     public void removeAddCityLL(View view, int id)
@@ -758,6 +762,8 @@ public class MainActivity extends AppCompatActivity {
             imDoneIntent.putExtra("mylist_cities",cities);
 
             startActivity(imDoneIntent);
+            nights.clear();
+            cities.clear();
         }
 
 

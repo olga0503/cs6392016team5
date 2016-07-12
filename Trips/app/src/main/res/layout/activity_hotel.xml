@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,6 +8,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="app.ui.cbrobbi.com.trips.HotelUpgradeActivity"
+    android:orientation="vertical"
+    android:weightSum="1"
     android:background="@drawable/main_page_background_design">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
@@ -60,12 +62,7 @@
                         android:src="@drawable/trump"
                         android:layout_marginRight="10dp"
                         android:layout_marginTop="35dp" />
-                    // android:src="@drawable/trump"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitCenter"
-                    android:layout_marginLeft="3dp"                        android:maxHeight="200dp"
-                    android:maxWidth="130dp"
-                    android:layout_marginRight="10dp" />
+
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
@@ -258,12 +255,6 @@
                         android:src="@drawable/hiltonhotel"
                         android:layout_weight="1"
                         android:layout_marginRight="10dp" />
-                    //android:src="@drawable/hiltonhotel"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitCenter"
-                    android:layout_marginLeft="3dp"                        android:maxHeight="200dp"
-                    android:maxWidth="130dp"
-                    android:layout_marginRight="10dp" />
 
                     <LinearLayout
                         android:orientation="vertical"
@@ -294,115 +285,115 @@
                     </LinearLayout>
                 </LinearLayout>
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:layout_weight="1">
-
                 <LinearLayout
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.2">
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight="1">
 
-                    <FrameLayout
+                    <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="@string/website"
-                            android:id="@+id/webClick2"
-                            android:onClick="prcoessFour"
-                            android:layout_marginRight="13dp"
-                            android:layout_weight=".3"
-                            android:textStyle="bold"
-                            android:textColor="#039"
-                            android:textSize="15dp"
-                            android:textIsSelectable="true" />
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
 
-                    </FrameLayout>
-                </LinearLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:text="@string/website"
+                                android:id="@+id/webClick2"
+                                android:onClick="prcoessFour"
+                                android:layout_marginRight="13dp"
+                                android:layout_weight=".3"
+                                android:textStyle="bold"
+                                android:textColor="#039"
+                                android:textSize="15dp"
+                                android:textIsSelectable="true" />
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.2">
+                        </FrameLayout>
+                    </LinearLayout>
 
-                    <FrameLayout
+                    <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="@string/map"
-                            android:id="@+id/mapClick2"
-                            android:onClick="prcoessFour"
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
 
-                            android:layout_marginRight="13dp"
-                            android:layout_weight=".3"
-                            android:textStyle="bold"
-                            android:textSize="15dp"
-                            android:textColor="#039" />
-                    </FrameLayout>
-                </LinearLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:text="@string/map"
+                                android:id="@+id/mapClick2"
+                                android:onClick="prcoessFour"
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.2">
+                                android:layout_marginRight="13dp"
+                                android:layout_weight=".3"
+                                android:textStyle="bold"
+                                android:textSize="15dp"
+                                android:textColor="#039" />
+                        </FrameLayout>
+                    </LinearLayout>
 
-                    <FrameLayout
+                    <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:text="@string/gallery"
+                                android:id="@+id/galleryClick2"
+                                android:onClick="prcoessFour"
+
+                                android:layout_marginRight="13dp"
+                                android:layout_weight=".3"
+                                android:textStyle="bold"
+                                android:textSize="15dp"
+                                android:textColor="#039" />
+                        </FrameLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="126dp"
                         android:layout_height="wrap_content">
 
-                        <TextView
+                        <FrameLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="@string/gallery"
-                            android:id="@+id/galleryClick2"
-                            android:onClick="prcoessFour"
+                            android:layout_height="wrap_content">
 
-                            android:layout_marginRight="13dp"
-                            android:layout_weight=".3"
-                            android:textStyle="bold"
-                            android:textSize="15dp"
-                            android:textColor="#039" />
-                    </FrameLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="126dp"
-                    android:layout_height="wrap_content">
-
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="@string/youtubeVid"
-                            android:id="@+id/youtubeClick2"
-                            android:onClick="prcoessFour"
-                            android:layout_marginRight="13dp"
-                            android:layout_weight=".3"
-                            android:textStyle="bold"
-                            android:textSize="15dp"
-                            android:textColor="#039" />
-                    </FrameLayout>
-                </LinearLayout>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:text="@string/youtubeVid"
+                                android:id="@+id/youtubeClick2"
+                                android:onClick="prcoessFour"
+                                android:layout_marginRight="13dp"
+                                android:layout_weight=".3"
+                                android:textStyle="bold"
+                                android:textSize="15dp"
+                                android:textColor="#039" />
+                        </FrameLayout>
+                    </LinearLayout>
                 </LinearLayout>
 
 
@@ -440,5 +431,4 @@
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>

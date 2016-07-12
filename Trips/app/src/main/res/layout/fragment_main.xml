@@ -71,7 +71,8 @@
                                 android:layout_weight=".5"
                                 android:onClick="radioMethod"
                                 android:checked="true"
-                                android:buttonTint="#0065B8" />
+                                android:buttonTint="#0065B8"
+                                android:textAppearance="?android:attr/textAppearanceMedium" />
                         </FrameLayout>
                     </LinearLayout>
 
@@ -92,7 +93,8 @@
                                 android:layout_weight=".5"
                                 android:onClick="radioMethod"
                                 android:buttonTint="#0065B8"
-                                android:checked="false" />
+                                android:checked="false"
+                                android:textAppearance="?android:attr/textAppearanceMedium" />
                         </FrameLayout>
                     </LinearLayout>
                 </RadioGroup>
@@ -304,7 +306,6 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:layout_weight="1">
 
                 <LinearLayout

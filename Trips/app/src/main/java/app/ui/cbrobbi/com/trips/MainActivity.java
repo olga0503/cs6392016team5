@@ -25,6 +25,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.design.widget.AppBarLayout.LayoutParams;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -589,44 +590,46 @@ public class MainActivity extends AppCompatActivity {
         count++;
         count2++;
         //adding horizontal layout
-        LinearLayout LH = new LinearLayout(this);
-        LH.setOrientation(LinearLayout.HORIZONTAL);
-        LayoutParams LHParams = new LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT);
-        LH.setMinimumHeight(25);
-        LHParams.setMargins(0,0,0,30);
-        LH.setLayoutParams(LHParams);
+         LinearLayout LH = new LinearLayout(this);
+         LH.setOrientation(LinearLayout.HORIZONTAL);
+         LayoutParams LHParams = new LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT);
 
-        LH.setId(count2 + 10);
+         LHParams.setMargins(0,0,0,30);
+         LH.setLayoutParams(LHParams);
+
+         LH.setId(count2 + 10);
 
         //adding vertical layouts
         LinearLayout LV1 = new LinearLayout(this);
         LV1.setOrientation(LinearLayout.VERTICAL);
-        LayoutParams LV1Params = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.MATCH_PARENT);
+        LayoutParams LV1Params = new LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT);
         LV1Params.weight = 3f;
         LV1.setLayoutParams(LV1Params);
 
         FrameLayout FL1 = new FrameLayout(this);
-        LayoutParams FL1Params = new LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.MATCH_PARENT);
+        LayoutParams FL1Params = new LayoutParams(LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         FL1.setLayoutParams(FL1Params);
+        FL1.getLayoutParams();
+        FL1Params.height=120;
 
         LinearLayout LV2 = new LinearLayout(this);
         LV2.setOrientation(LinearLayout.VERTICAL);
-        LayoutParams LV2Params = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+        LayoutParams LV2Params = new LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT);
         LV2Params.weight = 3f;
         LV2.setLayoutParams(LV2Params);
 
         FrameLayout FL2 = new FrameLayout(this);
-        LayoutParams FL2Params = new LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.MATCH_PARENT);
+        LayoutParams FL2Params = new LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.WRAP_CONTENT);
         FL2.setLayoutParams(FL2Params);
 
         LinearLayout LV3 = new LinearLayout(this);
         LV3.setOrientation(LinearLayout.VERTICAL);
-        LayoutParams LV3Params = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.MATCH_PARENT);
+        LayoutParams LV3Params = new LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT);
         LV3Params.weight =3f;
         LV3.setLayoutParams(LV3Params);
 
         FrameLayout FL3 = new FrameLayout(this);
-        LayoutParams FL3Params = new LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.MATCH_PARENT);
+        LayoutParams FL3Params = new LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.WRAP_CONTENT);
         FL3.setLayoutParams(FL3Params);
 
         EditText edittext_nights = new EditText(this);
@@ -643,9 +646,10 @@ public class MainActivity extends AppCompatActivity {
         spinner_add_city.setId(count*222);
         LayoutParams spiiner_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
         spinner_add_city.setBackgroundResource(R.drawable.spinner_design);
+        spinner_add_city.setMinimumHeight(40);
         spinner_add_city.setLayoutParams(spiiner_params);
         Button remove_city_button = new Button (this);
-        LayoutParams remove_city_button_params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+        LayoutParams remove_city_button_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
         remove_city_button.setBackgroundResource(R.drawable.button_design);
         remove_city_button_params.setMargins(10,20,0,20);
         remove_city_button.setText("Remove");
@@ -739,21 +743,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
             nights.add(0,nights_num.getText().toString());
-            //cities.add(0,spinner_arriving_city.getSelectedItem().toString());
-
-
-            // Toast.makeText(MainActivity.this, Integer.toString(al.size()), Toast.LENGTH_SHORT).show();
-
-
-            String allItems = ""; //used to display in the toast
-
-            for(String str : nights){
-                allItems = allItems + "\n" + str; //adds a new line between items
-            }
-
-            //Toast.makeText(getApplicationContext(),allItems, Toast.LENGTH_LONG).show();
-
-            //Toast.makeText(getApplicationContext(),allItems, Toast.LENGTH_LONG).show();
 
 
             Intent imDoneIntent = new Intent(this, ImDoneActivity.class);

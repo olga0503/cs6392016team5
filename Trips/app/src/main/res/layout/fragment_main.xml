@@ -71,8 +71,7 @@
                                 android:layout_weight=".5"
                                 android:onClick="radioMethod"
                                 android:checked="true"
-                                android:buttonTint="#0065B8"
-                                android:textSize="15dp" />
+                                android:buttonTint="#0065B8" />
                         </FrameLayout>
                     </LinearLayout>
 
@@ -93,8 +92,7 @@
                                 android:layout_weight=".5"
                                 android:onClick="radioMethod"
                                 android:buttonTint="#0065B8"
-                                android:checked="false"
-                                android:textSize="15dp" />
+                                android:checked="false" />
                         </FrameLayout>
                     </LinearLayout>
                 </RadioGroup>
@@ -122,7 +120,6 @@
                         android:layout_weight=".5"
                         android:layout_marginBottom="10dp"
                         android:textColor="#000000"
-                        android:textStyle="bold"
                         android:textAppearance="?android:attr/textAppearanceMedium" />
                     <FrameLayout
                         android:layout_width="fill_parent"
@@ -157,7 +154,6 @@
                         android:layout_weight=".5"
                         android:layout_marginBottom="10dp"
                         android:textColor="#000000"
-                        android:textStyle="bold"
                         android:textAppearance="?android:attr/textAppearanceMedium" />
                     <FrameLayout
                         android:layout_width="fill_parent"
@@ -438,20 +434,22 @@
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight=".5"
                 android:layout_marginBottom="10dp"
-                android:id="@+id/parent_layout">
+                android:id="@+id/parent_layout_horizontal">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:layout_marginBottom="10dp"
+                    android:id="@+id/parent_layout">
+                    </LinearLayout>
 
             </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"></LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -560,9 +558,11 @@
                     android:layout_marginBottom="17dp"
                     android:layout_weight=".3">
 
-
+                    <FrameLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/imageVie99"
                         android:src="@drawable/london"
@@ -572,15 +572,23 @@
                         android:maxHeight="200dp"
                         android:maxWidth="130dp"
                         android:layout_marginRight="10dp" />
-
+                    </FrameLayout>
+                    <FrameLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="10dp">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="London and Paris By Air. \n6 Nights"
                         android:id="@+id/textView14" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="From $1300"
@@ -588,7 +596,10 @@
                         android:textStyle="bold"
                         android:layout_marginBottom="10dp"
                         android:textColor="#0065b8" />
-
+                    </FrameLayout>
+                    <FrameLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -600,14 +611,19 @@
                         android:textColor="#ffffff"
                         android:layout_gravity="center"
                         android:layout_marginRight="5dp" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
                     <TextView
                         android:id="@+id/bookItDate1"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/bookItDate1"
                         android:layout_weight="1"
                         android:textColor="#000000"
                         android:textSize="15dp" />
+                    </FrameLayout>
                 </LinearLayout>
                 <LinearLayout
                     android:orientation="vertical"
@@ -615,8 +631,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="17dp"
                     android:layout_weight=".3">
+                    <FrameLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/imageView9"
                         android:src="@drawable/iran"
@@ -626,13 +645,23 @@
                         android:maxHeight="200dp"
                         android:maxWidth="130dp"
                         android:layout_marginRight="10dp" />
+                    </FrameLayout>
 
+                    <FrameLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="10dp">
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Best of The Middle East. \n12 Nights"
                         android:id="@+id/textView15" />
+                    </FrameLayout>
+                    <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -642,10 +671,13 @@
                         android:textStyle="bold"
                         android:textColor="#0065b8"
                         android:layout_marginBottom="10dp" />
-
+                    </FrameLayout>
+                    <FrameLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
                     <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="Book it"
                         android:id="@+id/book_it2_button"
                         android:onClick="setDate2"
@@ -654,16 +686,20 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="2.5dp"
                         android:layout_marginRight="2.5dp" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
                     <TextView
                         android:id="@+id/bookItDate2"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/date_selected"
                         android:layout_weight="1"
                         android:textColor="#000000"
                         android:textSize="15dp"
                         android:layout_gravity="center_horizontal" />
-
+                    </FrameLayout>
 
                 </LinearLayout>
                 <LinearLayout
@@ -672,9 +708,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="17dp"
                     android:layout_weight=".3">
-
+                    <FrameLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/imageView99"
                         android:src="@drawable/japan"
@@ -684,15 +722,23 @@
                         android:maxHeight="200dp"
                         android:maxWidth="130dp"
                         android:layout_marginRight="10dp" />
-
+                    </FrameLayout>
+                    <FrameLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="13dp">
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Best of Asian Countries \n10 Nights"
                         android:id="@+id/red" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="From $2900"
@@ -700,7 +746,10 @@
                         android:layout_marginBottom="10dp"
                         android:textStyle="bold"
                         android:textColor="#0065b8" />
-
+                    </FrameLayout>
+                    <FrameLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -711,14 +760,19 @@
                         android:textColor="#ffffff"
                         android:layout_gravity="center"
                         android:layout_marginLeft="5dp" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
                     <TextView
                         android:id="@+id/bookItDate3"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/date_selected"
                         android:layout_weight="1"
                         android:textColor="#000000"
                         android:textSize="15dp" />
+                    </FrameLayout>
 
                 </LinearLayout>
 

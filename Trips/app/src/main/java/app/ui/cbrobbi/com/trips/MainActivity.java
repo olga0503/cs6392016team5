@@ -622,7 +622,7 @@ public class MainActivity extends AppCompatActivity {
 
         FrameLayout FL2 = new FrameLayout(this);
         LayoutParams FL2Params = new LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.MATCH_PARENT);
-        FL2Params.setMargins(100,0,50,0);
+        FL2Params.setMargins(80,0,40,0);
         FL2Params.height=150;
         FL2.setLayoutParams(FL2Params);
 

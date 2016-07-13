@@ -57,8 +57,10 @@ public class ImDoneActivity extends AppCompatActivity {
 
         String nights_num_entry = Integer.toString(getIntent().getExtras().getInt("nights_number"));
 
-        TextView people_num = (TextView) findViewById(R.id.people_num);
-        people_num.setText("for " + adults_num_entry + " Adult(s), " + children_num_entry + " Child(ren)");
+        TextView adults_num = (TextView) findViewById(R.id.adults_num);
+        TextView children_num = (TextView) findViewById(R.id.children_num);
+        adults_num.setText("for " + adults_num_entry + " Adult(s), ");
+        children_num.setText(children_num_entry + " Child(ren)");
 
         TextView deparure_city = (TextView) findViewById(R.id.departure_city);
         deparure_city.setText(departure_city_entry  + " , US");
@@ -178,7 +180,8 @@ public class ImDoneActivity extends AppCompatActivity {
             hotel_desc.setId(i);
             LayoutParams hotel_desc_params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
             hotel_desc.setTypeface(null, Typeface.BOLD);
-            hotel_desc.setTextSize(25);
+            hotel_desc.setTextSize(20);
+            hotel_desc.setTextColor(Color.parseColor("#0065b8"));
             hotel_desc.setText("Accomodation");
             hotel_desc.setBackgroundColor(700);
             hotel_desc.setLayoutParams(hotel_desc_params);
@@ -191,8 +194,6 @@ public class ImDoneActivity extends AppCompatActivity {
             LayoutParams default_hotel_params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 
             default_hotel.setId(i);
-            default_hotel.setTextSize(15);
-            default_hotel.setTypeface(null, Typeface.BOLD);
             default_hotel.setLayoutParams(default_hotel_params);
 
             String city_name = city.getText().toString();
@@ -220,8 +221,20 @@ public class ImDoneActivity extends AppCompatActivity {
                 case "Puno":
                     default_hotel.setText("Tierra Viva Puno Plaza Hotel");
                     break;
-                case "Cusco":
+                case "Cuzco":
                     default_hotel.setText("Hotel Rumi Punku");
+                    break;
+                case "Nazca":
+                    default_hotel.setText("Casa Hacienda Nasca Oasis");
+                    break;
+                case "Arequipa":
+                    default_hotel.setText("Hotel Libertador Arequipa");
+                    break;
+                case "Iquitos":
+                    default_hotel.setText("Hotel Sol del Oriente Iquitos");
+                    break;
+                case "Ica":
+                    default_hotel.setText("Hotel Las Flores");
                     break;
 
             }
@@ -231,7 +244,7 @@ public class ImDoneActivity extends AppCompatActivity {
             hotel_desc.setId(i);
             LayoutParams act_desc_params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
             act_desc.setTypeface(null, Typeface.BOLD);
-            act_desc.setTextSize(25);
+            act_desc.setTextSize(20);
             act_desc.setLayoutParams(hotel_desc_params);
             act_desc.setText("Activities");
             act_desc.setTextColor(Color.parseColor("#0065b8"));
@@ -267,8 +280,8 @@ public class ImDoneActivity extends AppCompatActivity {
             }
         });
 
-            double totals = Integer.parseInt(adults_num_entry)*sumOfArray(dd,myList_nights.size()-1)*Integer.parseInt(children_num_entry)*0.8*650;
-            DecimalFormat df = new DecimalFormat("#.##");
+            double totals = (Integer.parseInt(adults_num_entry)+((Integer.parseInt(children_num_entry)*0.8))*650+((Integer.parseInt(adults_num_entry)+((Integer.parseInt(children_num_entry)*0.8))*sumOfArray(dd,myList_nights.size()-1))));
+            DecimalFormat df = new DecimalFormat("#,###.00");
 
             TextView total = (TextView) findViewById(R.id.total);
             total.setText("$ "+ df.format(totals));
